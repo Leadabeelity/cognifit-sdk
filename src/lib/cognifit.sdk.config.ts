@@ -98,6 +98,7 @@ export class CognifitSdkConfig {
       // tslint:disable-next-line:no-console
       console.log('*** JSDK *** CognifitSdkConfig.loadMode 1');
       // @ts-ignore
+      this.setJsVersion("test_2025-12-16_0928_goldberry"); // << this forces the version
       this.resourceHtml5Loader.loadMode(this.jsVersion, type, key, this.containerId, this.buildExtraParams());
       window.addEventListener(
         'message',
