@@ -28,7 +28,7 @@ export class CognifitSdkConfig {
   projectRegion: string;
 
   checkResourceLoadedTimes = 0;
-  resourceHtml5Loader = null;
+  resourceHtml5Loader: any = null;
 
   constructor(
     containerId: string = '',
