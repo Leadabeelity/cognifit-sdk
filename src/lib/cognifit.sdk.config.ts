@@ -28,7 +28,7 @@ export class CognifitSdkConfig {
   projectRegion: string;
 
   checkResourceLoadedTimes = 0;
-  resourceHtml5Loader: any = null;
+  resourceHtml5Loader?: HTML5JSLoader = undefined;
 
   constructor(
     containerId: string = '',
@@ -97,7 +97,7 @@ export class CognifitSdkConfig {
     if (this.resourceHtml5Loader) {
       // tslint:disable-next-line:no-console
       console.log('*** JSDK *** CognifitSdkConfig.loadMode 1');
-      // @ts-ignore
+      // @ts-ignore-NONONO
       this.setJsVersion("test_2025-12-16_0928_goldberry"); // << this forces the version
       this.resourceHtml5Loader.loadMode(this.jsVersion, type, key, this.containerId, this.buildExtraParams());
       window.addEventListener(
@@ -191,8 +191,9 @@ export class CognifitSdkConfig {
       if (this.checkResourceLoadedTimes < 500) {
         // tslint:disable-next-line:no-console
         console.log('*** JSDK *** CognifitSdkConfig.checkResourceLoaded 2');
-        // @ts-ignore
-        if (typeof window.HTML5JS !== 'undefined') {
+        // @ts-ignoreNONONO
+        // if (typeof window.HTML5JS !== 'undefined') {
+        if (typeof window !== 'undefined' && window.HTML5JS) {
           // tslint:disable-next-line:no-console
           console.log('*** JSDK *** CognifitSdkConfig.checkResourceLoaded 3');
           // @ts-ignore
